@@ -5,7 +5,15 @@ class Home extends Component {
 	state = {
 		email: "",
 		password: "",
-		companyName: ""
+		companyName: "",
+		companyPhone: "",
+		companyLogo: "",
+		companyIndustry: "",
+		companyAdress: {
+			country: "",
+			city: "",
+			street: ""
+		}
 	};
 	handleChange = event => {
 		const target = event.target;

@@ -18,6 +18,7 @@ class NewOffer extends Component {
 		ageMax: "",
 		genderTarget: ""
 	};
+
 	handleChange = event => {
 		const target = event.target;
 		const name = target.name;
