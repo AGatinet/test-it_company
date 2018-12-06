@@ -3,17 +3,19 @@ import axios from "axios";
 
 class NewOffer extends Component {
 	state = {
-		offerName: "",
+		offerName: "offre1",
 		creationDate: "",
-		deadlineInscription: "",
-		deadlineTest: "",
-		duration: "",
+		deadlineInscription: "2019/02/03",
+		deadlineTest: "2019/02/03",
+		duration: "1h",
 		picture: "",
-		country: "",
+		streeNumber: "",
+		streeName: "",
 		city: "",
-		availabilities: "",
-		price: "",
-		typeOffer: "",
+		country: "",
+		availabilities: "50",
+		price: "15",
+		typeOffer: "physique",
 		ageMin: "",
 		ageMax: "",
 		genderTarget: ""
@@ -79,9 +81,16 @@ class NewOffer extends Component {
 						required
 					/>
 					<input
-						name="country"
-						placeholder="country"
-						value={this.state.country}
+						name="streetNumber"
+						placeholder="streetNumber"
+						value={this.state.streetNumber}
+						onChange={this.handleChange}
+						required
+					/>
+					<input
+						name="streetName"
+						placeholder="streetName"
+						value={this.state.streetName}
 						onChange={this.handleChange}
 						required
 					/>
@@ -89,6 +98,13 @@ class NewOffer extends Component {
 						name="city"
 						placeholder="city"
 						value={this.state.city}
+						onChange={this.handleChange}
+						required
+					/>
+					<input
+						name="country"
+						placeholder="country"
+						value={this.state.country}
 						onChange={this.handleChange}
 						required
 					/>
