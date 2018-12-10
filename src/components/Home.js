@@ -48,7 +48,8 @@ class Home extends Component {
 			.post("http://localhost:3001/sign_up_company", {
 				email: this.state.email,
 				password: this.state.password,
-				companyName: this.state.companyName
+				companyName: this.state.companyName,
+				companyLogo: this.state.companyLogo
 			})
 			.then(response => {
 				if (response.data && response.data.token) {
@@ -102,6 +103,12 @@ class Home extends Component {
 						name="companyName"
 						placeholder="companyName"
 						value={this.state.companyName}
+						onChange={this.handleChange}
+					/>
+					<input
+						name="companyLogo"
+						placeholder="companyLogo"
+						value={this.state.companyLogo}
 						onChange={this.handleChange}
 					/>
 					<button onClick={this.onSubmitSignup}>Valider</button>
