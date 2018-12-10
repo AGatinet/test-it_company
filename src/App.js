@@ -50,7 +50,9 @@ class App extends React.Component {
 					/>
 					<Route
 						path="/NewOffer"
-						render={props => <NewOffer {...props} company={company} />}
+						render={props => (
+							<NewOffer {...props} company={company} logIn={this.logIn} />
+						)}
 					/>
 				</Fragment>
 			</Router>

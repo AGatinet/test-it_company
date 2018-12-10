@@ -1,0 +1,65 @@
+.container {
+	margin: auto;
+	width: 80%;
+	margin-bottom: 50px;
+}
+h2 {
+	text-align: center;
+}
+.form {
+	border: 1px solid black;
+	border-radius: 15px;
+	padding: 10px;
+}
+.offerDates {
+	display: flex;
+}
+.adressInfo {
+	display: flex;
+}
+.ageFilters {
+	display: flex;
+}
+.submit {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	margin: 20px;
+}
+.testTypes {
+	display: flex;
+	align-content: center;
+}
+button {
+	flex: 1;
+	height: 35px;
+	border-radius: 10px;
+	background-color: lightskyblue;
+	font-size: 20px;
+	font-weight: bold;
+}
+input {
+	border-radius: 5px;
+	height: 25px;
+	min-width: 200px;
+}
+.testType p {
+	text-align: inherit;
+}
+.typeTest {
+	margin: 20px;
+}
+
+select {
+	min-width: 200px;
+	height: 25px;
+}
+.detailsOfferDates,
+.detailsAdressInfo,
+.detailsAgeFilters {
+	margin-right: 50px;
+}
+.detailsOffer {
+	display: flex;
+	justify-content: space-between;
+}
