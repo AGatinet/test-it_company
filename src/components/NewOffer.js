@@ -18,7 +18,7 @@ class NewOffer extends Component {
 			"Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos iam gestu terrebat sed eum in certamen alacriter consurgentem revocavere ductores rati intempestivum anceps subire certamen cum haut longe muri distarent, quorum tutela securitas poterat in solido locari cunctorum.",
 		wantedProfiles:
 			"Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos iam gestu terrebat sed eum in certamen alacriter consurgentem revocavere ductores rati intempestivum anceps subire certamen cum haut longe muri distarent, quorum tutela securitas poterat in solido locari cunctorum.",
-		condition:
+		conditions:
 			"Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos iam gestu terrebat sed eum in certamen alacriter consurgentem revocavere ductores rati intempestivum anceps subire certamen cum haut longe muri distarent, quorum tutela securitas poterat in solido locari cunctorum.",
 		availabilities: "50",
 		price: "15",
@@ -38,7 +38,7 @@ class NewOffer extends Component {
 	onSubmitCreateOffer = event => {
 		axios
 			.post(
-				"http://localhost:3001/publish",
+				"http://localhost:3000/publish",
 				{ ...this.state, company: this.props.company._id },
 				{
 					headers: { authorization: "Bearer " + this.props.company.token }

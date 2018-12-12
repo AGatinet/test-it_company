@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import ReactFileReader from "react-file-reader";
 
 class Home extends Component {
 	state = {
@@ -7,7 +8,7 @@ class Home extends Component {
 		password: "",
 		companyName: "",
 		companyPhone: "",
-		companyLogo: "",
+		companyLogo: [],
 		companyIndustry: "",
 		companyAdress: {
 			country: "",
@@ -22,9 +23,15 @@ class Home extends Component {
 		const value = target.type === "checkbox" ? target.checked : target.value;
 		this.setState({ [name]: value });
 	};
+	handleFiles = files => {
+		const newFiles = [...this.state.companyLogo, ...files.base64];
+		this.setState({
+			companyLogo: newFiles
+		});
+	};
 	onSubmitLogin = event => {
 		axios
-			.post("http://localhost:3001/log_in_company", {
+			.post("http://localhost:3000/log_in_company", {
 				email: this.state.email,
 				password: this.state.password
 			})
@@ -45,7 +52,7 @@ class Home extends Component {
 	};
 	onSubmitSignup = event => {
 		axios
-			.post("http://localhost:3001/sign_up_company", {
+			.post("http://localhost:3000/sign_up_company", {
 				email: this.state.email,
 				password: this.state.password,
 				companyName: this.state.companyName,
@@ -67,6 +74,22 @@ class Home extends Component {
 			});
 	};
 	render() {
+		const filesArray = [];
+		for (let i = 0; i < this.state.companyLogo.length; i++) {
+			filesArray.push(
+				<img
+					key={i}
+					onClick={() => {
+						// En cliquant sur l'image, le fichier sera supprimé
+						const newFiles = [...this.state.companyLogo];
+						newFiles.splice(i, 1);
+						this.setState({ companyLogo: newFiles });
+					}}
+					src={this.state.companyLogo[i]}
+					alt="Annonce"
+				/>
+			);
+		}
 		return (
 			<div>
 				<h2>Se connecter</h2>
@@ -105,12 +128,15 @@ class Home extends Component {
 						value={this.state.companyName}
 						onChange={this.handleChange}
 					/>
-					<input
-						name="companyLogo"
-						placeholder="companyLogo"
-						value={this.state.companyLogo}
-						onChange={this.handleChange}
-					/>
+					<ReactFileReader
+						fileTypes={[".png", ".jpg"]}
+						base64={true}
+						multipleFiles={true} // `false si une seule image`
+						handleFiles={this.handleFiles}
+					>
+						<button type="button">Choisir un logo</button>
+					</ReactFileReader>
+					<div>{filesArray}</div>
 					<button onClick={this.onSubmitSignup}>Valider</button>
 				</div>
 			</div>
