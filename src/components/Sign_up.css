@@ -1,0 +1,22 @@
+.main-block {
+	border: 1px solid;
+	border-color: grey;
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+	padding: 20px;
+}
+.simple-input input {
+	min-width: 250px;
+}
+.validate {
+	display: flex;
+	justify-content: center;
+}
+.sign-up,
+.log-in {
+	margin: 40px;
+	max-width: 300px;
+	/* justify-content: center; */
+}

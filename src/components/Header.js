@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
+import "./Header.css";
 
 class Header extends Component {
 	onLogOut = event => {
@@ -24,8 +25,10 @@ class Header extends Component {
 		}
 		return (
 			<Fragment>
-				<li onClick={() => this.props.history.push("/")}>Créer un compte</li>
-				<li onClick={() => this.props.history.push("/")}>Se connecter</li>
+				<li onClick={() => this.props.history.push("/sign_up")}>
+					Créer un compte
+				</li>
+				<li onClick={() => this.props.history.push("/log_in")}>Se connecter</li>
 			</Fragment>
 		);
 	}
@@ -33,8 +36,15 @@ class Header extends Component {
 	render() {
 		return (
 			<header>
-				<div className="menu-right">
-					<ul>{this.renderNav()}</ul>
+				<div className="container">
+					<div className="Logo">
+						<Link to="/">
+							<img className="logo-test-it" src="assets/img/Logo.svg" />
+						</Link>
+					</div>
+					<div className="menu-right">
+						<ul>{this.renderNav()}</ul>
+					</div>
 				</div>
 			</header>
 		);
