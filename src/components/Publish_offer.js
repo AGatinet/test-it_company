@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./NewOffer.css";
+import "./Publish_offer.css";
 
 class NewOffer extends Component {
 	state = {
@@ -38,15 +38,17 @@ class NewOffer extends Component {
 	onSubmitCreateOffer = event => {
 		axios
 			.post(
-				"http://localhost:3000/publish",
+				"http://192.168.86.60:3000/publish",
 				{ ...this.state, company: this.props.company._id },
 				{
 					headers: { authorization: "Bearer " + this.props.company.token }
 				}
 			)
 			.then(response => {
-				console.log("yes man");
-				console.log(response);
+				// console.log("yes man");
+				// console.log(response);
+				alert("Votre offre a bien été enregistré");
+				this.props.history.push("/profile");
 			})
 			.catch(err => {
 				console.log(err);
@@ -212,26 +214,21 @@ class NewOffer extends Component {
 						<option value="Physique">Physique</option>
 						<option value="Online">Online</option>
 					</select> */}
-						<div>
-							<input
-								type="radio"
-								id="typeTest1"
-								className="typeTest"
-								name="typeOffer"
-								value="Physique"
-								onClick={this.handleChange}
-							/>
-							<label for="typeTest1">Physique</label>
-							<input
-								type="radio"
-								id="typeTest2"
-								className="typeTest"
-								name="typeOffer"
-								value="Online"
-								onClick={this.handleChange}
-							/>
-							<label for="typeTest2">Online</label>
-						</div>
+
+						<input
+							type="radio"
+							name="typeOffer"
+							value="Physique"
+							onClick={this.handleChange}
+						/>
+						<p>Physique</p>
+						<input
+							type="radio"
+							name="typeOffer"
+							value="Online"
+							onClick={this.handleChange}
+						/>
+						<p>Online</p>
 					</div>
 					<div className="ageFilters">
 						<div className="detailsAgeFilters">
@@ -253,13 +250,30 @@ class NewOffer extends Component {
 							/>
 						</div>
 					</div>
-					<p>Sexe requis</p>
-					<input
-						name="genderTarget"
-						placeholder="genderTarget"
-						value={this.state.genderTarget}
-						onChange={this.handleChange}
-					/>
+					<div className="genderTarget">
+						<p>Le test s'adresse aux :</p>
+						<input
+							type="radio"
+							name="genderTarget"
+							value="homme"
+							onChange={this.handleChange}
+						/>
+						<p>hommes</p>
+						<input
+							type="radio"
+							name="genderTarget"
+							value="femme"
+							onChange={this.handleChange}
+						/>
+						<p>femmes</p>
+						<input
+							type="radio"
+							name="genderTarget"
+							value=""
+							onChange={this.handleChange}
+						/>
+						<p>aux hommes et aux femmes</p>
+					</div>
 					<div className="submit">
 						<button onClick={this.onSubmitCreateOffer}>Valider</button>
 					</div>
