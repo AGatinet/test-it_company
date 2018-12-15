@@ -13,22 +13,31 @@ class Header extends Component {
 			return (
 				<Fragment>
 					<li
-						onClick={() =>
-							this.props.history.push("/" + this.props.company._id)
-						}
+						class="buttonCompanyName"
+						onClick={() => this.props.history.push("/profile")}
 					>
 						{this.props.company.companyName}
 					</li>
-					<li onClick={this.onLogOut}>Déconnexion</li>
+					<li class="buttonLogOff" onClick={this.onLogOut}>
+						Déconnexion
+					</li>
 				</Fragment>
 			);
 		}
 		return (
 			<Fragment>
-				<li onClick={() => this.props.history.push("/sign_up")}>
+				<li
+					class="buttonCompanyName"
+					onClick={() => this.props.history.push("/sign_up")}
+				>
 					Créer un compte
 				</li>
-				<li onClick={() => this.props.history.push("/log_in")}>Se connecter</li>
+				<li
+					class="buttonLogOff"
+					onClick={() => this.props.history.push("/log_in")}
+				>
+					Se connecter
+				</li>
 			</Fragment>
 		);
 	}

@@ -6,6 +6,7 @@ import PublishOffer from "./components/Publish_offer";
 import LogIn from "./components/Log_in";
 import SignUp from "./components/Sign_up";
 import Profile from "./components/Profile";
+import Offer from "./components/Offer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Cookies from "js-cookie";
 
@@ -75,6 +76,15 @@ class App extends React.Component {
 							<Profile {...props} company={company} logIn={this.logIn} />
 						)}
 					/>
+					<Route
+						path="/offer"
+						render={props => (
+							<Offer {...props} company={company} logIn={this.logIn} />
+						)}
+					/>
+					<footer>
+						<div className="container">Created by PC</div>
+					</footer>
 				</Fragment>
 			</Router>
 		);
