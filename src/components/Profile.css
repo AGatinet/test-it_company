@@ -1,7 +1,42 @@
+/* .offer-card:hover {
+	box-shadow: 3px black;
+} */
 .my-offers {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	border-bottom: 1px solid black;
+	border-bottom: 1px dashed black;
+}
+.my-offers-right,
+.my-offers-left {
+	flex: 1;
+}
+.my-offers-right {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+.button-left {
+	display: flex;
+	margin-left: 20px;
+	align-items: center;
+	justify-content: center;
+}
+.my-offers-right button {
+	border-radius: 50%;
+}
+.offer-body {
+	display: flex;
+	flex-direction: row;
+}
+.offer-body:hover {
+	box-shadow: 3px 3px 3px grey;
+}
+.offer-body-left {
+	flex: 1;
+}
+.offer-body-right {
+	flex: 1;
+	text-align: end;
 }

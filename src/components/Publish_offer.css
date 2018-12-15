@@ -22,12 +22,17 @@ h2 {
 	margin: 20px;
 }
 button {
+	color: #b2025a;
 	flex: 1;
 	height: 35px;
+	border: 2px solid #b2025a;
 	border-radius: 10px;
-	background-color: lightskyblue;
 	font-size: 20px;
 	font-weight: bold;
+}
+button:hover {
+	background-color: #b2025a;
+	color: white;
 }
 input {
 	border-radius: 5px;
